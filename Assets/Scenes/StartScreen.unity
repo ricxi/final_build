@@ -629,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d98d2c42799d3e49a1b9cec504f7cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstLevelSceneName: LevelOne
+  FirstLevelSceneName: TutorialLevel
   InstructionsSceneName: Instruction
   audioSource: {fileID: 1790549347}
   clickButtonAudioClip: {fileID: 8300000, guid: 2d4c2a4a9f4cf71aa832c8bd09ef3762, type: 3}
