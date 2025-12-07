@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85a35c49ddf2300683f582a160edeeb, type: 3}
+  m_Name: PlayerSounds
+  m_EditorClassIdentifier: 
+  LowHealth: {fileID: 8300000, guid: 4a81c1096a0345d5e8053a12e766d80b, type: 3}
+  CollisionDamage: {fileID: 8300000, guid: 41d131aba3eabea91bec7f20df3a43a8, type: 3}
+  Death: {fileID: 0}
+  ItemPickup: {fileID: 8300000, guid: feb23a48c26d69b28aee035dbeeb4e7a, type: 3}
+  ScorePoint: {fileID: 0}
+  Heal: {fileID: 8300000, guid: 8562111791bf3d9aba9bc760d1d07910, type: 3}
+  EquipShield: {fileID: 8300000, guid: 7f1988a9c738ee3f8903f655ad69a26f, type: 3}
