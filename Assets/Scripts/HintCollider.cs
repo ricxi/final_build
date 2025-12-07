@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class HintCollider : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private PlayerUIHandler playerUI;
+    // [SerializeField] private string helpText;
+
+    private void Start()
     {
-        
+        if (playerUI == null) Debug.LogError("Reference to Player UI is missing");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        playerUI.DisplayTextToPlayer("Press \'Z\' to interact with the gate.", 2f);
     }
 }

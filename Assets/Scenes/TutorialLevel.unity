@@ -314,6 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 119813780}
   - component: {fileID: 119813779}
+  - component: {fileID: 119813781}
   m_Layer: 0
   m_Name: RectHintCollider
   m_TagString: Untagged
@@ -381,6 +382,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &119813781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119813778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8157cbbe01c4a13f9a6e7d0745b7bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &125527950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6712203177489540412, guid: ddf712a7ed14f187ba98150a2b926686, type: 3}
