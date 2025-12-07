@@ -386,7 +386,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1289209553
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 021af00b145a3f428af8f1063bc29ebf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -677,31 +677,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6673662471432717065, guid: 5648b3c484d9f8bcaa45cb2c85cc72f6, type: 3}
   m_PrefabInstance: {fileID: 580079029}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &225134690 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5637416741554123487, guid: 5648b3c484d9f8bcaa45cb2c85cc72f6, type: 3}
-  m_PrefabInstance: {fileID: 1098786133}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &225134691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6673662471432717065, guid: 5648b3c484d9f8bcaa45cb2c85cc72f6, type: 3}
   m_PrefabInstance: {fileID: 1098786133}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &225134695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225134690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 393a17d8c942a0d6c970c2945661846c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 5
-  popupCanvasPrefab: {fileID: 0}
-  audioClip: {fileID: 0}
 --- !u!4 &240444745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8573161776404773522, guid: 8c40ecd54b96d0390ade89dad0281d4f, type: 3}
@@ -2671,7 +2651,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1289209553
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3445,10 +3425,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5637416741554123487, guid: 5648b3c484d9f8bcaa45cb2c85cc72f6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 225134695}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5648b3c484d9f8bcaa45cb2c85cc72f6, type: 3}
 --- !u!1 &1120845048
 GameObject:
@@ -4985,7 +4962,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1289209553
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -9517,7 +9494,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1289209553
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
