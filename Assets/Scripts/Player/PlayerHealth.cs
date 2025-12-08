@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private string gameOverScene = "GameOver";
+    [SerializeField] private string resetSceneName = "TutorialLevel";
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private int maxHealth = 5;
@@ -41,8 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode __)
     {
-        Debug.Log("CHANGE THIS BEFORE FINAL BUILD");
-        if (scene.name == "LevelOne") return;
+        if (scene.name == resetSceneName) return;
         PlayerUIHandler.Instance.BuildHeartContainers(maxHealth);
         PlayerUIHandler.Instance.UpdateHealth(currentHealth);
 

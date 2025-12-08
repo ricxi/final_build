@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerScore : MonoBehaviour
 {
     [SerializeField] private int score;
+    [SerializeField] private string resetSceneName = "TutorialLevel";
+
     public int Score => score;
     private void OnEnable()
     {
@@ -31,7 +33,7 @@ public class PlayerScore : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode __)
     {
-        if (scene.name == "LevelOne") return;
+        if (scene.name == resetSceneName) return;
         PlayerUIHandler.Instance.UpdateScore(score);
     }
 }

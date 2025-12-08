@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4875331827079400078}
   - component: {fileID: 1319031773687824038}
   - component: {fileID: 4022533196975218676}
+  - component: {fileID: -7971498855046032353}
   m_Layer: 0
   m_Name: ProjectileMediumWave
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1289209553
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 279651648, guid: a231a2d164cbe41ccafc363ea3e575a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,3 +179,30 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: 4b4b071d9853b979585fe32febbf2919, type: 3}
   velocity: {x: 0, y: 0}
   currentSpeed: 0
+--- !u!50 &-7971498855046032353
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651427022408090685}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4

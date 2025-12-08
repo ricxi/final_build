@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Projectile : MonoBehaviour
 {
@@ -34,18 +35,24 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        IDamageable enemy = collision.collider.gameObject.GetComponent<IDamageable>();
-        if (enemy != null)
+        IDamageable damageableGo = collision.collider.gameObject.GetComponent<IDamageable>();
+        if (damageableGo != null)
         {
-            enemy.TakeDamage(projectileType.damage);
+            damageableGo.TakeDamage(projectileType.damage);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
-        Hazard hazard = collision.gameObject.GetComponent<Hazard>();
-        if (hazard != null)
+        CompositeCollider2D cc2d = collision.gameObject.GetComponent<CompositeCollider2D>();
+        if (cc2d != null)
         {
-            hazard.TakeDamage(projectileType.damage);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+
+        TilemapCollider2D tc2d = collision.gameObject.GetComponent<TilemapCollider2D>();
+        if (tc2d != null)
+        {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

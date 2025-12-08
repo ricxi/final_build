@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hazard : MonoBehaviour
+public class Hazard : MonoBehaviour, IDamageable
 {
     [SerializeField] private int healthPoints = 7;
     [SerializeField] private Animator _animator;
