@@ -5,15 +5,15 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Projectile bulletPrefab;
     [SerializeField] private Transform gunpoint;
-    private Projectile currentWeapon;
-    // private AudioManager audioManager;
+    [SerializeField] private Transform gunpointA;
+    [SerializeField] private Transform gunpointB;
+
+    private Projectile _currentWeapon;
 
     private void Start()
     {
-        // audioManager = GetComponent<AudioManager>();
-
-        if (bulletPrefab != null) currentWeapon = bulletPrefab;
-        else Debug.LogError("Missing: currentWeapon must have Projectile reference default.");
+        if (bulletPrefab != null) _currentWeapon = bulletPrefab;
+        else Debug.LogError("Missing: _currentWeapon must have Projectile reference default.");
     }
 
     private void FixedUpdate()
@@ -22,21 +22,34 @@ public class PlayerAttack : MonoBehaviour
         {
             Fire();
         }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            DoubleFire();
+        }
+
     }
 
     public void Fire()
     {
-        GameObject gameObject = Instantiate(currentWeapon.gameObject, gunpoint.position, Quaternion.identity);
-        AudioManager.Instance.PlayOneShot(currentWeapon.ShootSound);
+        AudioManager.Instance.PlayOneShot(_currentWeapon.ShootSound);
+        GameObject gameObject = Instantiate(_currentWeapon.gameObject, gunpoint.position, Quaternion.identity);
+    }
+
+    public void DoubleFire()
+    {
+        AudioManager.Instance.PlayOneShot(_currentWeapon.ShootSound);
+        Instantiate(bulletPrefab, gunpointA.position, Quaternion.identity);
+        Instantiate(bulletPrefab.gameObject, gunpointB.position, Quaternion.identity);
     }
 
     public void SwitchWeapon(Projectile projectilePrefab)
     {
-        currentWeapon = projectilePrefab;
+        _currentWeapon = projectilePrefab;
     }
 
     public void ResetToBaseWeapon()
     {
-        currentWeapon = bulletPrefab;
+        _currentWeapon = bulletPrefab;
     }
 }
