@@ -48,6 +48,8 @@
 
 ## Additions since Beta
 A list of changes since the beta build
+- Created Tutorial Level
+- Created Gate and Lock
 
 ## Todo
 - Tell monster to look for camera and find camera shake script
