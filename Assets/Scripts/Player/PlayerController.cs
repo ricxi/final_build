@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] private SoundType playerAudioClips;
 
-    private PlayerUIHandler playerUI;
     private RigidbodyConstraints2D baselineContraints;
 
     private float _horizontalInput;
@@ -21,7 +20,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        playerUI = GameObject.Find("PlayerUIManager").GetComponent<PlayerUIHandler>();
         if (rb == null) rb = GetComponent<Rigidbody2D>();
         baselineContraints = rb.constraints;
     }
@@ -62,7 +60,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Teleport"))
         {
             ActivateShield(3f);
-            playerUI.DisplayTextToPlayer("teleporting!!", 2f);
+            PlayerUIHandler.Instance.DisplayTextToPlayer("teleporting!!", 2f);
             StartCoroutine(FreezePlayer(1.2f));
             StartCoroutine(DelayTeleport(1f));
         }

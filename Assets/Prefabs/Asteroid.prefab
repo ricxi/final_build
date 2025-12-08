@@ -186,3 +186,4 @@ MonoBehaviour:
   healthPoints: 7
   _animator: {fileID: 194596594975765630}
   explosionAudioClip: {fileID: 8300000, guid: ec4cc222817e2d25d8216c86f4124325, type: 3}
+  capsuleCollider: {fileID: 3376101408077171782}

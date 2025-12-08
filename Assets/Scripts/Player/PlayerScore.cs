@@ -1,24 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScore : MonoBehaviour
 {
     [SerializeField] private int score;
     public int Score => score;
-    private PlayerUIHandler playerUI;
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     private void Start()
     {
         score = 0;
-        playerUI = GameObject.Find("PlayerUIManager").GetComponent<PlayerUIHandler>();
-        playerUI.UpdateScore(score);
+        PlayerUIHandler.Instance.UpdateScore(score);
     }
 
     public void UpdateScore(int points)
     {
         score += points;
-        playerUI.UpdateScore(score);
+        PlayerUIHandler.Instance.UpdateScore(score);
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode __)
+    {
+        if (scene.name == "LevelOne") return;
+        PlayerUIHandler.Instance.UpdateScore(score);
+    }
 }

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class PlayerUIHandler : MonoBehaviour
 {
+
+    public static PlayerUIHandler Instance;
+
     [SerializeField] private TMP_Text helperText;
     [SerializeField] private TMP_Text showPointsCollected;
     [SerializeField] private TMP_Text scoreText;
@@ -13,6 +16,21 @@ public class PlayerUIHandler : MonoBehaviour
     [SerializeField] private Image heartImagePrefab;
     private List<Image> heartImages = new List<Image>(); // Not sure if this should be instantiated in Start method
     private Coroutine displayAndRemoveTextCoHandler;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
 
     public void DisplayTextToPlayer(string textToDisplay, float duration)
     {
@@ -32,14 +50,15 @@ public class PlayerUIHandler : MonoBehaviour
         helperText.text = "";
     }
 
-    // Must be called by Start method of PlayerScoreManager
+    // Must be called by Start method of PlayerScore
     public void UpdateScore(int score)
     {
         scoreText.text = "" + score;
     }
 
-    // Must be called by Start method of PlayerHealthManager
-    public void SetMaxHealth(int maxHealth)
+    // Must be called by Start method of PlayerHealth
+    // because it creates the heart containers.
+    public void BuildHeartContainers(int maxHealth)
     {
         foreach (Image heart in heartImages)
         {

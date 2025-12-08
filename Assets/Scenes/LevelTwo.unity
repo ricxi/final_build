@@ -548,6 +548,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6645845}
     - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
+      propertyPath: helperText
+      value: 
+      objectReference: {fileID: 1252942572}
+    - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
       propertyPath: displayText
       value: 
       objectReference: {fileID: 1252942572}
@@ -555,6 +559,10 @@ PrefabInstance:
       propertyPath: heartContainerPanel
       value: 
       objectReference: {fileID: 890489457}
+    - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
+      propertyPath: showPointsCollected
+      value: 
+      objectReference: {fileID: 1122370952}
     - target: {fileID: 3837330804302555721, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
       propertyPath: m_Name
       value: PlayerUIManager
@@ -7443,6 +7451,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4356236627961002375, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
   m_PrefabInstance: {fileID: 1122370950}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1122370952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4431046815031700499, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+  m_PrefabInstance: {fileID: 1122370950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1136677665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3681746975441262581, guid: dcd58a68cb1568f4993ac2011f75ef40, type: 3}
@@ -12061,7 +12080,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3487635846382674917, guid: a64e1ba6f2e09f5c2bb138e79aae94f1, type: 3}
       propertyPath: PersistentGameObjects.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3487635846382674917, guid: a64e1ba6f2e09f5c2bb138e79aae94f1, type: 3}
       propertyPath: PersistentGameObjects.Array.data[0]
@@ -12074,11 +12093,11 @@ PrefabInstance:
     - target: {fileID: 3487635846382674917, guid: a64e1ba6f2e09f5c2bb138e79aae94f1, type: 3}
       propertyPath: PersistentGameObjects.Array.data[2]
       value: 
-      objectReference: {fileID: 1122370951}
+      objectReference: {fileID: 0}
     - target: {fileID: 3487635846382674917, guid: a64e1ba6f2e09f5c2bb138e79aae94f1, type: 3}
       propertyPath: PersistentGameObjects.Array.data[3]
       value: 
-      objectReference: {fileID: 180271915}
+      objectReference: {fileID: 0}
     - target: {fileID: 3487635846382674917, guid: a64e1ba6f2e09f5c2bb138e79aae94f1, type: 3}
       propertyPath: persistentGameObjects.Array.data[0]
       value: 
@@ -12217,10 +12236,10 @@ SceneRoots:
   - {fileID: 2012926366}
   - {fileID: 2039902958}
   - {fileID: 1027636439}
-  - {fileID: 1122370950}
-  - {fileID: 180271914}
   - {fileID: 2131621598}
   - {fileID: 1892011548}
+  - {fileID: 1122370950}
+  - {fileID: 180271914}
   - {fileID: 169492113}
   - {fileID: 1742262665}
   - {fileID: 1040673507}

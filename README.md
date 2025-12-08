@@ -48,3 +48,9 @@
 
 ## Additions since Beta
 A list of changes since the beta build
+
+## Todo
+- Tell monster to look for camera and find camera shake script
+- Tutorial Level
+- More enemy types
+- Enemy spawner/respawner

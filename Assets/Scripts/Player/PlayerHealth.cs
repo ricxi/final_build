@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -15,22 +14,38 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private GameObject popupTextPrefab;
     [SerializeField] private SoundType audioClips;
 
-    private PlayerUIHandler playerUI;
     private HealEffect healEffect;
     private DamageEffect damageEffect;
     private bool isDead = false;
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Start()
     {
         currentHealth = maxHealth;
-        playerUI = GameObject.Find("PlayerUIManager").GetComponent<PlayerUIHandler>();
-        playerUI.SetMaxHealth(maxHealth);
+        PlayerUIHandler.Instance.BuildHeartContainers(currentHealth);
 
         healEffect = GetComponent<HealEffect>();
         damageEffect = GetComponent<DamageEffect>();
 
-        if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode __)
+    {
+        Debug.Log("CHANGE THIS BEFORE FINAL BUILD");
+        if (scene.name == "LevelOne") return;
+        PlayerUIHandler.Instance.BuildHeartContainers(maxHealth);
+        PlayerUIHandler.Instance.UpdateHealth(currentHealth);
+
     }
 
     public void TakeDamage(int damage)
@@ -41,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
             ShowDamage(damage);
             AudioManager.Instance.Play(audioClips.CollisionDamage);
             damageEffect.PlayOnDamage();
-            playerUI.UpdateHealth(currentHealth);
+            PlayerUIHandler.Instance.UpdateHealth(currentHealth);
 
             if (currentHealth <= 1)
             {
@@ -73,7 +88,7 @@ public class PlayerHealth : MonoBehaviour
             ShowHeal(healAmount);
             if (currentHealth > 1) AudioManager.Instance.Stop();
 
-            playerUI.UpdateHealth(currentHealth);
+            PlayerUIHandler.Instance.UpdateHealth(currentHealth);
             healEffect.PlayOnHeal();
         }
     }
