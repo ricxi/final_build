@@ -7,6 +7,11 @@ public class HintCollider : MonoBehaviour
     [SerializeField] private string helpText;
     [SerializeField] private GameObject visualHint;
 
+    private void Start()
+    {
+        if (visualHint != null) visualHint.SetActive(false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
