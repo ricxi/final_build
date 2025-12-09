@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class HintCollider : MonoBehaviour
 {
-    // [SerializeField] private string helpText;
+    [SerializeField] private string helpText;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerUIHandler.Instance.DisplayTextToPlayer("Press \'X\' to interact with the gate.", 2f);
+        PlayerUIHandler.Instance.DisplayTextToPlayer(helpText, 2f);
+        // PlayerUIHandler.Instance.DisplayTextToPlayer("Press \'X\' to interact with the gate.", 2f);
     }
 }
