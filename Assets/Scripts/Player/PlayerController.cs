@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         float currentSpeed = _isSprinting ? sprintSpeed : speed;
+
         Vector2 movementInput = new(_horizontalInput, _verticalInput);
         rb.MovePosition(rb.position + (movementInput.normalized * (currentSpeed * Time.fixedDeltaTime)));
     }
