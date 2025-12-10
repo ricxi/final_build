@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e87140de6ed8bbbd8c7a5c97aed31ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: {fileID: 0}
+  helperText: {fileID: 0}
+  showPointsCollected: {fileID: 0}
   scoreText: {fileID: 0}
   heartContainerPanel: {fileID: 0}
+  weaponImageUI: {fileID: 0}
   heartImagePrefab: {fileID: 2954409745286485061, guid: cf1a3d719f5c3fbd4bfb47ced6d28d42, type: 3}

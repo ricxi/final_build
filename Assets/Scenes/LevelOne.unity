@@ -9909,6 +9909,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1796987809}
     - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
+      propertyPath: weaponImageUI
+      value: 
+      objectReference: {fileID: 3955511362726694855}
+    - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
       propertyPath: heartContainerPanel
       value: 
       objectReference: {fileID: 286312266}
@@ -10399,6 +10403,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+--- !u!114 &3955511362726694855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1073555328437648166, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+  m_PrefabInstance: {fileID: 3955511362726694854}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3955511362726694856 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4431046815031700499, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
@@ -10884,11 +10899,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 656300888}
   - {fileID: 1245647847466259151}
-  - {fileID: 3955511362726694854}
   - {fileID: 1035546603839960726}
-  - {fileID: 2016314359}
-  - {fileID: 1213524650690308556}
   - {fileID: 3079092474078040166}
+  - {fileID: 2016314359}
+  - {fileID: 3955511362726694854}
+  - {fileID: 1213524650690308556}
   - {fileID: 1001119877}
   - {fileID: 252932211}
   - {fileID: 6913805472725113089}

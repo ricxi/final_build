@@ -56,3 +56,4 @@ A list of changes since the beta build
 - Tutorial Level
 - More enemy types
 - Enemy spawner/respawner
+- Move projectile sounds into ProjectileType scriptable object

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IHealable
 {
     [SerializeField] private string gameOverScene = "GameOver";
     [SerializeField] private string resetSceneName = "TutorialLevel";
@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
     private HealEffect healEffect;
     private DamageEffect damageEffect;
-    private bool isDead = false;
+    private bool _isDead = false;
 
     private void OnEnable()
     {
@@ -45,12 +45,11 @@ public class PlayerHealth : MonoBehaviour
         if (scene.name == resetSceneName) return;
         PlayerUIHandler.Instance.BuildHeartContainers(maxHealth);
         PlayerUIHandler.Instance.UpdateHealth(currentHealth);
-
     }
 
     public void TakeDamage(int damage)
     {
-        if (!isDead)
+        if (!_isDead)
         {
             currentHealth -= damage;
             ShowDamage(damage);
@@ -65,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-                isDead = true;
+                _isDead = true;
                 rb.velocity = Vector2.zero;
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 StartCoroutine(DeathSequence());
@@ -80,7 +79,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal(int healAmount)
     {
-        if (!isDead && currentHealth < maxHealth)
+        if (!_isDead && currentHealth < maxHealth)
         {
             currentHealth += healAmount;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);

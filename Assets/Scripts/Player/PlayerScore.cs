@@ -9,6 +9,7 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] private string resetSceneName = "TutorialLevel";
 
     public int Score => score;
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -25,15 +26,15 @@ public class PlayerScore : MonoBehaviour
         PlayerUIHandler.Instance.UpdateScore(score);
     }
 
-    public void UpdateScore(int points)
-    {
-        score += points;
-        PlayerUIHandler.Instance.UpdateScore(score);
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode __)
     {
         if (scene.name == resetSceneName) return;
+        PlayerUIHandler.Instance.UpdateScore(score);
+    }
+
+    public void UpdateScore(int points)
+    {
+        score += points;
         PlayerUIHandler.Instance.UpdateScore(score);
     }
 }

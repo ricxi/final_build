@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f746dc7f9c2bc91c5987197919ea1020, type: 3}
   m_Name: Bullet
   m_EditorClassIdentifier: 
+  id: 0
   speed: 15
   lifeSpan: 3
   damage: 1
+  sprite: {fileID: 687795259, guid: a231a2d164cbe41ccafc363ea3e575a4, type: 3}

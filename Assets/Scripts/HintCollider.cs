@@ -16,12 +16,9 @@ public class HintCollider : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PlayerUIHandler.Instance.DisplayTextToPlayer(helpText, 2f);
+            PlayerUIHandler.Instance.DisplayText(helpText, 2f);
 
-            if (visualHint != null)
-            {
-                visualHint.SetActive(true);
-            }
+            if (visualHint != null) visualHint.SetActive(true);
         }
     }
 
@@ -29,10 +26,7 @@ public class HintCollider : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (visualHint != null)
-            {
-                visualHint.SetActive(false);
-            }
+            if (visualHint != null) visualHint.SetActive(false);
         }
     }
 }

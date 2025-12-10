@@ -1,39 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private Projectile bulletPrefab;
+    [SerializeField] private Projectile bulletPrefab; // Player will always have this as their default weapon
     [SerializeField] private Transform gunpoint;
     [SerializeField] private Transform gunpointA;
     [SerializeField] private Transform gunpointB;
+    [SerializeField] private string resetSceneName = "TutorialLevel";
 
     private Projectile _currentWeapon;
 
-    private void Start()
+    private void OnEnable()
     {
-        if (bulletPrefab != null) _currentWeapon = bulletPrefab;
-        else Debug.LogError("Missing: _currentWeapon must have Projectile reference default.");
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void FixedUpdate()
+    private void OnDisable()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Fire();
-        }
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void Start()
 
-        if (Input.GetButtonDown("Jump"))
+    {
+        if (bulletPrefab != null)
         {
-            DoubleFire();
+            _currentWeapon = bulletPrefab;
+            PlayerUIHandler.Instance.UpdateWeaponImage(_currentWeapon.GetSprite());
         }
+        else Debug.LogError("Missing Reference: _currentWeapon must have Projectile reference default.");
+    }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1")) Fire();
+        if (Input.GetButtonDown("Jump")) DoubleFire();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode __)
+    {
+        if (scene.name == resetSceneName) return;
+        if (_currentWeapon == null) _currentWeapon = bulletPrefab;
+        PlayerUIHandler.Instance.UpdateWeaponImage(_currentWeapon.GetSprite());
     }
 
     public void Fire()
     {
         AudioManager.Instance.PlayOneShot(_currentWeapon.ShootSound);
-        GameObject gameObject = Instantiate(_currentWeapon.gameObject, gunpoint.position, Quaternion.identity);
+        Instantiate(_currentWeapon.gameObject, gunpoint.position, Quaternion.identity);
     }
 
     public void DoubleFire()
@@ -46,10 +62,12 @@ public class PlayerAttack : MonoBehaviour
     public void SwitchWeapon(Projectile projectilePrefab)
     {
         _currentWeapon = projectilePrefab;
+        PlayerUIHandler.Instance.UpdateWeaponImage(_currentWeapon.GetSprite());
     }
 
     public void ResetToBaseWeapon()
     {
         _currentWeapon = bulletPrefab;
+        PlayerUIHandler.Instance.UpdateWeaponImage(_currentWeapon.GetSprite());
     }
 }

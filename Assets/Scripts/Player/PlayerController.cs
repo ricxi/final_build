@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Teleport"))
         {
             ActivateShield(3f);
-            PlayerUIHandler.Instance.DisplayTextToPlayer("teleporting!!", 2f);
+            PlayerUIHandler.Instance.DisplayText("teleporting!!", 2f);
             StartCoroutine(FreezePlayer(1.2f));
             StartCoroutine(DelayTeleport(1f));
         }

@@ -16,3 +16,4 @@ MonoBehaviour:
   speed: 6
   lifeSpan: 5
   damage: 3
+  sprite: {fileID: 261397617, guid: a231a2d164cbe41ccafc363ea3e575a4, type: 3}

@@ -13,6 +13,7 @@ public class PlayerUIHandler : MonoBehaviour
     [SerializeField] private TMP_Text showPointsCollected;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Transform heartContainerPanel;
+    [SerializeField] private Image weaponImageUI;
     [SerializeField] private Image heartImagePrefab;
     private List<Image> heartImages = new List<Image>(); // Not sure if this should be instantiated in Start method
     private Coroutine displayAndRemoveTextCoHandler;
@@ -32,7 +33,7 @@ public class PlayerUIHandler : MonoBehaviour
         if (Instance == this) Instance = null;
     }
 
-    public void DisplayTextToPlayer(string textToDisplay, float duration)
+    public void DisplayText(string textToDisplay, float duration)
     {
         if (displayAndRemoveTextCoHandler != null)
         {
@@ -43,11 +44,16 @@ public class PlayerUIHandler : MonoBehaviour
         displayAndRemoveTextCoHandler = StartCoroutine(DisplayAndRemoveText(textToDisplay, duration));
     }
 
-    public IEnumerator DisplayAndRemoveText(string textToDisplay, float lifetime)
+    public IEnumerator DisplayAndRemoveText(string textToDisplay, float duration)
     {
         helperText.text = textToDisplay;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(duration);
         helperText.text = "";
+    }
+
+    public void UpdateWeaponImage(Sprite sprite)
+    {
+        weaponImageUI.sprite = sprite;
     }
 
     // Must be called by Start method of PlayerScore

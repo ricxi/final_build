@@ -9,13 +9,13 @@ public class EnemyController : MonoBehaviour, IDamageable
     private PlayerScore playerScore;
     private Transform playerTransform;
 
-    private int currentHealth;
-    private bool isDead = false;
+    private int _currentHealth;
+    private bool _isDead = false;
 
     private void Start()
     {
-        if (enemyType == null) return; // Maybe play an error message instead
-        currentHealth = enemyType.maxHealth;
+        if (enemyType == null) return;
+        _currentHealth = enemyType.maxHealth;
 
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         playerScore = GameObject.Find("Player").GetComponent<PlayerScore>();
@@ -50,12 +50,12 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int damage)
     {
-        if (!isDead)
+        if (!_isDead)
         {
-            currentHealth -= damage;
-            if (currentHealth <= 0)
+            _currentHealth -= damage;
+            if (_currentHealth <= 0)
             {
-                isDead = true;
+                _isDead = true;
                 playerScore.UpdateScore(enemyType.points);
                 Destroy(gameObject);
             }
