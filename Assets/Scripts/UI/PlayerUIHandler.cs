@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerUIHandler : MonoBehaviour
 {
-
     public static PlayerUIHandler Instance;
 
     [SerializeField] private TMP_Text helperText;
