@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _interactable = collision.gameObject.GetComponent<IInteractable>();
-        _canInteract = _interactable != null;
+        _canInteract = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

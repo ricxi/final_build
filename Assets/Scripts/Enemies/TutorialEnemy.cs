@@ -9,6 +9,9 @@ public class TutorialEnemy : MonoBehaviour, IDamageable
     [TextArea(minLines: 3, maxLines: 3)]
     [SerializeField]
     private string tutorialText = "Ouch!!\nLooks like it was a foe.\nGrab the heart nearby to heal.";
+    [TextArea(minLines: 2, maxLines: 2)]
+    [SerializeField]
+    private string helpText = "Friend or foe?\nCollide to find out.";
     [SerializeField] private GateDoor gate;
     [SerializeField] private GameObject explosionPrefab;
 
@@ -48,12 +51,12 @@ public class TutorialEnemy : MonoBehaviour, IDamageable
     }
 
     // Plays a message if the player keeps attacking the enemy
-    public void TakeDamage(int damage)
+    public void TakeDamage(int _)
     {
-        _accumulatedDamage += damage;
+        _accumulatedDamage += 1;
         if (_accumulatedDamage >= 3)
         {
-            if (PlayerUIHandler.Instance != null) PlayerUIHandler.Instance.DisplayText("Friend or foe?\nCollide to find out.", 2f);
+            if (PlayerUIHandler.Instance != null) PlayerUIHandler.Instance.DisplayText(helpText, 2f);
             _accumulatedDamage = 0;
         }
     }

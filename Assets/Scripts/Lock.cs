@@ -8,6 +8,10 @@ public class Lock : MonoBehaviour, IInteractable
     [SerializeField] AudioClip unlockedAudioClip;
     [SerializeField] private GateDoor gate;
     [SerializeField] private LockType lockType;
+    [SerializeField] private string helpText = "It looks like you need a key.";
+    [SerializeField] private int maxUnlockAttempts = 2;
+
+    private int _unlockAttempts = 0;
 
     public void Interact(GameObject interactor)
     {
@@ -15,9 +19,16 @@ public class Lock : MonoBehaviour, IInteractable
         if (inventory != null)
         {
             if (inventory.HasKey(lockType.keyCode)) Unlock();
-            else AudioManager.Instance.PlayOneShotWithDelay(lockedAudioClip);
+            else
+            {
+                AudioManager.Instance.PlayOneShotWithDelay(lockedAudioClip);
+                if (_unlockAttempts >= maxUnlockAttempts)
+                {
+                    if (PlayerUIHandler.Instance != null) PlayerUIHandler.Instance.PauseAndOpenDisplayWindow(helpText);
+                    _unlockAttempts = 0;
+                }
+            }
         }
-        else AudioManager.Instance.PlayOneShotWithDelay(lockedAudioClip);
     }
 
     public void Unlock()
