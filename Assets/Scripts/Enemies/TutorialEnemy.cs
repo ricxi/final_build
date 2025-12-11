@@ -5,12 +5,16 @@ using UnityEngine;
 public class TutorialEnemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private EnemyType enemyType;
-    [SerializeField] private string tutorialText = "Ouch!!\nLooks like it was an enemy.\nGrab the heart nearby to heal.";
+
+    [TextArea(minLines: 3, maxLines: 3)]
+    [SerializeField]
+    private string tutorialText = "Ouch!!\nLooks like it was an enemy.\nGrab the heart nearby to heal.";
     [SerializeField] private GateDoor gate;
     [SerializeField] private GameObject explosionPrefab;
 
     private Coroutine _pauseRoutineCoHandler;
     private bool _isDead = false;
+    private int _accumulatedDamage = 0;
 
     private void Start()
     {
@@ -44,6 +48,14 @@ public class TutorialEnemy : MonoBehaviour, IDamageable
     }
 
     // Plays a message if the player keeps attacking the enemy
-    public void TakeDamage(int __) { }
+    public void TakeDamage(int damage)
+    {
+        _accumulatedDamage += damage;
+        if (_accumulatedDamage >= 3)
+        {
+            if (PlayerUIHandler.Instance != null) PlayerUIHandler.Instance.DisplayText("Friend or foe?\nCollide to find out.", 2f);
+            _accumulatedDamage = 0;
+        }
+    }
 }
 

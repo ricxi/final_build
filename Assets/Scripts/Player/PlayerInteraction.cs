@@ -29,7 +29,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (_canInteract && _isInteracting)
         {
-            _interactable.Interact();
+            _interactable.Interact(gameObject);
         }
     }
 

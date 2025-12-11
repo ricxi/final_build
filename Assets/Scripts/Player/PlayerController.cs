@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float sprintSpeed = 19f;
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject shield;
-    [SerializeField] private SoundType playerAudioClips;
+    [SerializeField] private PlayerAudioClips playerAudioClips;
 
     private RigidbodyConstraints2D baselineContraints;
 
@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             ActivateShield(3f);
             PlayerUIHandler.Instance.DisplayText("teleporting!!", 2f);
+            AudioManager.Instance.PlayOneShot(playerAudioClips.Teleport); // TODO: create backup player if this one is already playing
             StartCoroutine(FreezePlayer(1.2f));
             StartCoroutine(DelayTeleport(1f));
         }

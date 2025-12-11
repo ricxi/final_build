@@ -7,11 +7,14 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
     [SerializeField] private AudioSource backgroundMusicSource;
     [SerializeField] private AudioSource oneShotSFXSource;
+    [SerializeField] private AudioSource oneShotDelaySFXSource;
     [SerializeField] private AudioSource sFXSource;
     [SerializeField] private float defaultVolume = 0.3f;
     [SerializeField] private AudioClip[] playerSounds;
 
-    private Coroutine delayBgMusicHandle;
+    private bool _isOneShotLocked = false;
+    private Coroutine _oneShotCooldownCoHandler = null;
+    private Coroutine _delayBgMusicHandle;
 
     private void Awake()
     {
@@ -31,6 +34,25 @@ public class AudioManager : MonoBehaviour
         Instance.oneShotSFXSource.PlayOneShot(clip, defaultVolume);
     }
 
+    public void PlayOneShotWithDelay(AudioClip clip)
+    {
+        if (_isOneShotLocked) return;
+        Instance.oneShotDelaySFXSource.PlayOneShot(clip, defaultVolume);
+        if (_oneShotCooldownCoHandler != null)
+        {
+            StopCoroutine(_oneShotCooldownCoHandler);
+            _oneShotCooldownCoHandler = null;
+        }
+        _oneShotCooldownCoHandler = StartCoroutine(OneShotCooldown(clip.length));
+    }
+
+    private IEnumerator OneShotCooldown(float duration)
+    {
+        _isOneShotLocked = true;
+        yield return new WaitForSecondsRealtime(duration);
+        _isOneShotLocked = false;
+    }
+
     public void Play(AudioClip clip)
     {
         sFXSource.clip = clip;
@@ -42,15 +64,15 @@ public class AudioManager : MonoBehaviour
     // and will resume after the audio clip is finished playing
     public void InterruptBgMusic(AudioClip audioClip)
     {
-        if (delayBgMusicHandle != null)
+        if (_delayBgMusicHandle != null)
         {
-            StopCoroutine(delayBgMusicHandle);
-            delayBgMusicHandle = null;
+            StopCoroutine(_delayBgMusicHandle);
+            _delayBgMusicHandle = null;
         }
 
         Instance.StopBackgroundMusic();
         Instance.PlayOneShot(audioClip);
-        delayBgMusicHandle = StartCoroutine(delayRestartBgMusic(audioClip.length));
+        _delayBgMusicHandle = StartCoroutine(delayRestartBgMusic(audioClip.length));
     }
 
     private IEnumerator delayRestartBgMusic(float delay)

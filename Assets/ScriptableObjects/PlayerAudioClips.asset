@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b85a35c49ddf2300683f582a160edeeb, type: 3}
-  m_Name: PlayerSounds
+  m_Name: PlayerAudioClips
   m_EditorClassIdentifier: 
   LowHealth: {fileID: 8300000, guid: 4a81c1096a0345d5e8053a12e766d80b, type: 3}
   CollisionDamage: {fileID: 8300000, guid: 41d131aba3eabea91bec7f20df3a43a8, type: 3}
@@ -19,3 +19,5 @@ MonoBehaviour:
   ScorePoint: {fileID: 0}
   Heal: {fileID: 8300000, guid: 8562111791bf3d9aba9bc760d1d07910, type: 3}
   EquipShield: {fileID: 8300000, guid: 7f1988a9c738ee3f8903f655ad69a26f, type: 3}
+  EquipWeapon: {fileID: 0}
+  Teleport: {fileID: 8300000, guid: f80dcc54cbe28c41fbb9d6cdd06f97fb, type: 3}

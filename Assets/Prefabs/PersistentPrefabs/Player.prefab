@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 3457140979861641586}
   - component: {fileID: 5516332904859965098}
   - component: {fileID: 5011885318110015470}
+  - component: {fileID: 2567143621715675373}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -310,6 +311,7 @@ MonoBehaviour:
   gunpoint: {fileID: 3588668815473207596}
   gunpointA: {fileID: 2892638776537820603}
   gunpointB: {fileID: 219798560333273795}
+  resetSceneName: TutorialLevel
 --- !u!114 &8581967641590698133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +480,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22d24325aca1f619f9413e055c4540c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2567143621715675373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829344334423678659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c5305559481b54ba0c1a04bc59c210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8983060935008021646

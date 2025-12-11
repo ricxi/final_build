@@ -2651,8 +2651,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed5d5093e49343d893171023398f00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 403036cb3c72a9b1cab9b933d440e3b3, type: 3}
+  lockedAudioClip: {fileID: 8300000, guid: 268cc9a1382344b91a5df44b471b8ccc, type: 3}
+  unlockedAudioClip: {fileID: 8300000, guid: 403036cb3c72a9b1cab9b933d440e3b3, type: 3}
   gate: {fileID: 2084070514}
+  lockType: {fileID: 11400000, guid: b40f46c2fcd699fbeb8eeabe9c3b5717, type: 2}
 --- !u!1001 &1027636439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2704,10 +2706,6 @@ PrefabInstance:
     - target: {fileID: 7829344334423678659, guid: 764420a5544f24a75ad8dc45007523e0, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7829344334423678659, guid: 764420a5544f24a75ad8dc45007523e0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7404,7 +7402,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8157cbbe01c4a13f9a6e7d0745b7bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpText: Friend or Foe? Collide to find out.
+  helpText: 'Friend or Foe?
+
+    Collide to find out.'
   visualHint: {fileID: 0}
 --- !u!61 &1103524346
 BoxCollider2D:
@@ -13567,6 +13567,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b51d86a2be73d02a2e05f5baf95f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1494075838
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3640907263285800148, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: key
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f5c62b5d2caab331b6351015b64dda3, type: 2}
+    - target: {fileID: 6593326370361287537, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_Name
+      value: ItemPickup_Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -87.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
 --- !u!1001 &1499809590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15746,11 +15807,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6881377765910235222, guid: 2d788c865763d8e99b1e2bc27b77d733, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -105.41
+      value: -97.76
       objectReference: {fileID: 0}
     - target: {fileID: 6881377765910235222, guid: 2d788c865763d8e99b1e2bc27b77d733, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.04
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 6881377765910235222, guid: 2d788c865763d8e99b1e2bc27b77d733, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15859,10 +15920,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: {fileID: 11400000, guid: 4fb37d0ff50d82e31a84bf7d903979c2, type: 2}
-  tutorialText: 'Ouch! It looks like it was an enemy, but no worries.
+  tutorialText: 'Ouch!!!
 
-    Just pick
-    up the heart to heal'
+    Looks like it was an enemy.
+
+    Grab the heart nearby
+    to heal.'
   gate: {fileID: 1493778371}
   explosionPrefab: {fileID: 2826158678119041950, guid: a76f9c4b3bbd7acd79b7b115a3685b32, type: 3}
 --- !u!1660057539 &9223372036854775807
@@ -15894,3 +15957,4 @@ SceneRoots:
   - {fileID: 869762292}
   - {fileID: 1897430313}
   - {fileID: 3964382825392149739}
+  - {fileID: 1494075838}

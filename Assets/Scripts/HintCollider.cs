@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class HintCollider : MonoBehaviour
 {
-    [SerializeField] private string helpText;
+
+    [TextArea(minLines: 2, maxLines: 2)]
+    [SerializeField]
+    private string helpText;
     [SerializeField] private GameObject visualHint;
 
     private void Start()
@@ -17,16 +20,12 @@ public class HintCollider : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             PlayerUIHandler.Instance.DisplayText(helpText, 2f);
-
             if (visualHint != null) visualHint.SetActive(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            if (visualHint != null) visualHint.SetActive(false);
-        }
+        if (collision.CompareTag("Player")) if (visualHint != null) visualHint.SetActive(false);
     }
 }

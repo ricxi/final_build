@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class Lock : MonoBehaviour, IInteractable
 {
-    [SerializeField] AudioClip audioClip;
+    [SerializeField] AudioClip lockedAudioClip;
+    [SerializeField] AudioClip unlockedAudioClip;
     [SerializeField] private GateDoor gate;
+    [SerializeField] private LockType lockType;
 
-    public void Interact()
+    public void Interact(GameObject interactor)
     {
-        gate.Unlock();
-        AudioManager.Instance.PlayOneShot(audioClip);
+        PlayerInventory inventory = interactor.GetComponent<PlayerInventory>();
+        if (inventory != null)
+        {
+            if (inventory.HasKey(lockType.keyCode)) Unlock();
+            else AudioManager.Instance.PlayOneShotWithDelay(lockedAudioClip);
+        }
+        else AudioManager.Instance.PlayOneShotWithDelay(lockedAudioClip);
+    }
+
+    public void Unlock()
+    {
+        gate.Unlock(); // I could also just destroy it.
+        AudioManager.Instance.PlayOneShot(unlockedAudioClip);
         Destroy(gameObject);
     }
 }

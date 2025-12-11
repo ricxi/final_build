@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour, IHealable
     [SerializeField] private int maxHealth = 5;
     [SerializeField] private int currentHealth;
     [SerializeField] private GameObject popupTextPrefab;
-    [SerializeField] private SoundType audioClips;
+    [SerializeField] private PlayerAudioClips audioClips;
 
     private HealEffect healEffect;
     private DamageEffect damageEffect;
