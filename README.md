@@ -48,7 +48,8 @@
 
 ## Additions since Beta
 A list of changes since the beta build
-- Created Tutorial Level
+- Added Tutorial Level
+- Added enemy spawners
 - Created Gate and Lock
 
 ## Todo
