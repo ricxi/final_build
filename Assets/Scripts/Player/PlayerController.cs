@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
 
     private RigidbodyConstraints2D _baselineContraints;
     private Coroutine _freezePlayerCoHandler = null;
-    private Coroutine _delayTeleportCoHandler = null;
 
     private float _horizontalInput;
     private float _verticalInput;
