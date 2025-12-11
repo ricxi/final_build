@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2101b97e664c0dae5b4709e14434df4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstLevelSceneName: LevelOne
+  FirstLevelSceneName: TutorialLevel
   StartScreenSceneName: StartScreen
 --- !u!1 &1186984689
 GameObject:
