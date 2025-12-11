@@ -11,9 +11,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject shield;
     [SerializeField] private PlayerAudioClips playerAudioClips;
+    [SerializeField] private float sprintBoostThreshold = 2f;      // Player must hold sprint for 2+ seconds to get a boost
+    [SerializeField] private float sprintBoostMultiplier = 3f;
 
     private RigidbodyConstraints2D _baselineContraints;
     private Coroutine _freezePlayerCoHandler = null;
+    private float _sprintTimer = 0f;
+    private bool _sprintBoostActivated = false;
 
     private float _horizontalInput;
     private float _verticalInput;
@@ -28,12 +32,21 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         GetInput();
+        StartSprintTimer();
     }
 
     private void FixedUpdate()
     {
         Move();
         Animate();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("LevelEndTrigger"))
+        {
+            FreezeMovement(1.2f);
+        }
     }
 
     private void GetInput()
@@ -45,7 +58,10 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        float currentSpeed = _isSprinting ? sprintSpeed : speed;
+        // float currentSpeed = _isSprinting ? sprintSpeed : speed;
+        float baseSpeed = _isSprinting ? sprintSpeed : speed;
+        float currentSpeed = _sprintBoostActivated ? baseSpeed * sprintBoostMultiplier : baseSpeed;
+
         Vector2 movementInput = new(_horizontalInput, _verticalInput);
         rb.MovePosition(rb.position + (movementInput.normalized * (currentSpeed * Time.fixedDeltaTime)));
     }
@@ -55,11 +71,18 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("isSprinting", _isSprinting);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void StartSprintTimer()
     {
-        if (collision.CompareTag("LevelEndTrigger"))
+        if (_isSprinting)
         {
-            FreezeMovement(1.2f);
+            _sprintTimer += Time.deltaTime;
+            if (!_sprintBoostActivated && _sprintTimer >= sprintBoostThreshold)
+                _sprintBoostActivated = true;
+        }
+        else
+        {
+            _sprintTimer = 0f;
+            _sprintBoostActivated = false;
         }
     }
 

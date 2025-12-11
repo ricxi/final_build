@@ -2655,6 +2655,8 @@ MonoBehaviour:
   unlockedAudioClip: {fileID: 8300000, guid: 403036cb3c72a9b1cab9b933d440e3b3, type: 3}
   gate: {fileID: 2084070514}
   lockType: {fileID: 11400000, guid: b40f46c2fcd699fbeb8eeabe9c3b5717, type: 2}
+  helpText: It looks like you need a key.
+  maxUnlockAttempts: 2
 --- !u!1001 &1027636439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2663,6 +2665,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 254612136746213758, guid: 764420a5544f24a75ad8dc45007523e0, type: 3}
+      propertyPath: sprintBoostMultiplier
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2263588720151800442, guid: 764420a5544f24a75ad8dc45007523e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -113.7
@@ -7622,6 +7628,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2688695729368990277, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 33.693115
+      objectReference: {fileID: 0}
     - target: {fileID: 4080005671699735705, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -15926,6 +15936,9 @@ MonoBehaviour:
 
     Grab the heart nearby
     to heal.'
+  helpText: 'Friend or foe?
+
+    Collide to find out.'
   gate: {fileID: 1493778371}
   explosionPrefab: {fileID: 2826158678119041950, guid: a76f9c4b3bbd7acd79b7b115a3685b32, type: 3}
 --- !u!1660057539 &9223372036854775807
