@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Vector2 direction;
     [SerializeField] private Vector2 velocity;
     [SerializeField] private float currentSpeed;
+    [SerializeField] private int currentDamage;
     [SerializeField] private AudioClip shootSound;
 
     public AudioClip ShootSound => shootSound;
@@ -19,6 +20,7 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         currentSpeed = projectileType.speed;
+        currentDamage = projectileType.damage;
         direction = new Vector2(1, 0);
         Destroy(gameObject, projectileType.lifeSpan);
     }
@@ -37,10 +39,17 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        IDamageable damageableGo = collision.collider.gameObject.GetComponent<IDamageable>();
+        PlayerAttack player = collision.gameObject.GetComponent<PlayerAttack>();
+        if (player != null)
+        {
+            currentSpeed *= 5;
+            currentDamage *= 3;
+        }
+
+        IDamageable damageableGo = collision.gameObject.GetComponent<IDamageable>();
         if (damageableGo != null)
         {
-            damageableGo.TakeDamage(projectileType.damage);
+            damageableGo.TakeDamage(currentDamage);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

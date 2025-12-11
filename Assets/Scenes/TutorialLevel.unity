@@ -2656,7 +2656,6 @@ MonoBehaviour:
   gate: {fileID: 2084070514}
   lockType: {fileID: 11400000, guid: b40f46c2fcd699fbeb8eeabe9c3b5717, type: 2}
   helpText: It looks like you need a key.
-  maxUnlockAttempts: 2
 --- !u!1001 &1027636439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2671,7 +2670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2263588720151800442, guid: 764420a5544f24a75ad8dc45007523e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -113.7
+      value: -124.66
       objectReference: {fileID: 0}
     - target: {fileID: 2263588720151800442, guid: 764420a5544f24a75ad8dc45007523e0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14931,7 +14930,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 729776039674649122, guid: 05bb52ba2458adae0b3ec3257d5620bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 205.33664
+      value: 194.37663
       objectReference: {fileID: 0}
     - target: {fileID: 729776039674649122, guid: 05bb52ba2458adae0b3ec3257d5620bb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14987,7 +14986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7174271206068781862, guid: 05bb52ba2458adae0b3ec3257d5620bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 205.33664
+      value: 194.37663
       objectReference: {fileID: 0}
     - target: {fileID: 7174271206068781862, guid: 05bb52ba2458adae0b3ec3257d5620bb, type: 3}
       propertyPath: m_LocalPosition.y
