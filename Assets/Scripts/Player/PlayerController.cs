@@ -29,6 +29,16 @@ public class PlayerController : MonoBehaviour
         _baselineContraints = rb.constraints;
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Update()
     {
         GetInput();
@@ -117,5 +127,10 @@ public class PlayerController : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         yield return new WaitForSeconds(duration);
         rb.constraints = _baselineContraints;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode __)
+    {
+        if (scene.name == "LevelOne") transform.position = Vector3.zero;
     }
 }

@@ -22,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
     private void Start()
 
     {

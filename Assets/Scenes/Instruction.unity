@@ -1267,7 +1267,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Basic Movement  - Arrow Keys (WASD)
 
-    Sprint - Left Shift
+    Dash - Left Shift
 
     Shoot
     - Left CTRL
