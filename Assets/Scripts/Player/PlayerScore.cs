@@ -23,18 +23,23 @@ public class PlayerScore : MonoBehaviour
     private void Start()
     {
         score = 0;
-        PlayerUIHandler.Instance.UpdateScore(score);
+        updateScoreUI();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode __)
     {
         if (scene.name == resetSceneName) return;
-        PlayerUIHandler.Instance.UpdateScore(score);
+        updateScoreUI();
     }
 
     public void UpdateScore(int points)
     {
         score += points;
-        PlayerUIHandler.Instance.UpdateScore(score);
+        updateScoreUI();
+    }
+
+    private void updateScoreUI()
+    {
+        if (PlayerUIHandler.Instance != null) PlayerUIHandler.Instance.UpdateScore(score);
     }
 }

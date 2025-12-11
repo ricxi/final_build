@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour, IHealable
     private void Start()
     {
         currentHealth = maxHealth;
-        PlayerUIHandler.Instance.BuildHeartContainers(currentHealth);
+        buildHealthUI();
 
         healEffect = GetComponent<HealEffect>();
         damageEffect = GetComponent<DamageEffect>();
@@ -43,8 +43,8 @@ public class PlayerHealth : MonoBehaviour, IHealable
     private void OnSceneLoaded(Scene scene, LoadSceneMode __)
     {
         if (scene.name == resetSceneName) return;
-        PlayerUIHandler.Instance.BuildHeartContainers(maxHealth);
-        PlayerUIHandler.Instance.UpdateHealth(currentHealth);
+        buildHealthUI();
+        updateHealthUI();
     }
 
     public void TakeDamage(int damage)
@@ -55,7 +55,7 @@ public class PlayerHealth : MonoBehaviour, IHealable
             ShowDamage(damage);
             AudioManager.Instance.Play(audioClips.CollisionDamage);
             damageEffect.PlayOnDamage();
-            PlayerUIHandler.Instance.UpdateHealth(currentHealth);
+            updateHealthUI();
 
             if (currentHealth <= 1)
             {
@@ -87,7 +87,7 @@ public class PlayerHealth : MonoBehaviour, IHealable
             ShowHeal(healAmount);
             if (currentHealth > 1) AudioManager.Instance.Stop();
 
-            PlayerUIHandler.Instance.UpdateHealth(currentHealth);
+            updateHealthUI();
             healEffect.PlayOnHeal();
         }
     }
@@ -121,5 +121,17 @@ public class PlayerHealth : MonoBehaviour, IHealable
         yield return new WaitForSecondsRealtime(0.03f);
 
         SceneManager.LoadScene(gameOverScene);
+    }
+
+    private void buildHealthUI()
+    {
+        if (PlayerUIHandler.Instance != null)
+            PlayerUIHandler.Instance.BuildHeartContainers(maxHealth);
+    }
+
+    private void updateHealthUI()
+    {
+        if (PlayerUIHandler.Instance != null)
+            PlayerUIHandler.Instance.UpdateHealth(currentHealth);
     }
 }

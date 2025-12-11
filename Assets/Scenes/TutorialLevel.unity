@@ -565,6 +565,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
+      propertyPath: okButton
+      value: 
+      objectReference: {fileID: 933254577}
+    - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 6645845}
@@ -573,9 +577,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1252942572}
     - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
+      propertyPath: displayPanel
+      value: 
+      objectReference: {fileID: 726464360}
+    - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
       propertyPath: weaponImageUI
       value: 
       objectReference: {fileID: 1122370952}
+    - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
+      propertyPath: displayWindowText
+      value: 
+      objectReference: {fileID: 873887346}
+    - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
+      propertyPath: displayWindowPanel
+      value: 
+      objectReference: {fileID: 726464360}
     - target: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
       propertyPath: heartContainerPanel
       value: 
@@ -638,6 +654,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3837330804302555721, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
   m_PrefabInstance: {fileID: 180271914}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &180271916 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1523491134470208402, guid: a94cdfec4e42d827ab54b318cda088a5, type: 3}
+  m_PrefabInstance: {fileID: 180271914}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180271915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e87140de6ed8bbbd8c7a5c97aed31ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &189513947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3681746975441262581, guid: dcd58a68cb1568f4993ac2011f75ef40, type: 3}
@@ -2122,6 +2149,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcd58a68cb1568f4993ac2011f75ef40, type: 3}
+--- !u!1 &726464360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4080005671699735705, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+  m_PrefabInstance: {fileID: 1122370950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &861695952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2280,6 +2312,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcd58a68cb1568f4993ac2011f75ef40, type: 3}
+--- !u!114 &873887346 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8747654094658105286, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+  m_PrefabInstance: {fileID: 1122370950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &877690189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8365203799284798439, guid: dc124908d30770f458662a4e51fe4eb0, type: 3}
@@ -2413,6 +2456,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3681746975441262581, guid: dcd58a68cb1568f4993ac2011f75ef40, type: 3}
   m_PrefabInstance: {fileID: 898268953}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &933254577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5178881920253605317, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+  m_PrefabInstance: {fileID: 1122370950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &967281991
 GameObject:
   m_ObjectHideFlags: 0
@@ -7572,6 +7626,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5178881920253605317, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178881920253605317, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 180271916}
+    - target: {fileID: 5178881920253605317, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnOkButtonClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178881920253605317, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUIHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178881920253605317, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8014273245774282640, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7651,6 +7725,14 @@ PrefabInstance:
     - target: {fileID: 8014273245774282640, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747654094658105286, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+      propertyPath: m_text
+      value: Ouch!!\nLooks like it was an enemy.\nGrab the heart nearby to heal.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747654094658105286, guid: e1713c11ee8737b82af40a9e5a4b6b1a, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14262,6 +14344,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1897430310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897430313}
+  - component: {fileID: 1897430312}
+  - component: {fileID: 1897430311}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1897430311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897430310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1897430312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897430310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1897430313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897430310}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1934053337
 GameObject:
   m_ObjectHideFlags: 0
@@ -15644,6 +15794,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: {fileID: 11400000, guid: 4fb37d0ff50d82e31a84bf7d903979c2, type: 2}
+  tutorialText: 'Ouch! It looks like it was an enemy, but no worries.
+
+    Just pick
+    up the heart to heal'
   gate: {fileID: 1493778371}
   explosionPrefab: {fileID: 2826158678119041950, guid: a76f9c4b3bbd7acd79b7b115a3685b32, type: 3}
 --- !u!1660057539 &9223372036854775807
@@ -15673,3 +15827,4 @@ SceneRoots:
   - {fileID: 360169989}
   - {fileID: 1594571237}
   - {fileID: 869762292}
+  - {fileID: 1897430313}

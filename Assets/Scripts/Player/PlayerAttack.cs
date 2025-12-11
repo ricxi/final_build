@@ -28,13 +28,14 @@ public class PlayerAttack : MonoBehaviour
         if (bulletPrefab != null)
         {
             _currentWeapon = bulletPrefab;
-            PlayerUIHandler.Instance.UpdateWeaponImage(_currentWeapon.GetSprite());
+            updateWeaponImageUI(_currentWeapon.GetSprite());
         }
         else Debug.LogError("Missing Reference: _currentWeapon must have Projectile reference default.");
     }
 
     private void Update()
     {
+        if (PlayerUIHandler.Instance != null && PlayerUIHandler.Instance.IsPaused) return;
         if (Input.GetButtonDown("Fire1")) Fire();
         if (Input.GetButtonDown("Jump")) DoubleFire();
     }
@@ -43,7 +44,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (scene.name == resetSceneName) return;
         if (_currentWeapon == null) _currentWeapon = bulletPrefab;
-        PlayerUIHandler.Instance.UpdateWeaponImage(_currentWeapon.GetSprite());
+        updateWeaponImageUI(_currentWeapon.GetSprite());
     }
 
     public void Fire()
@@ -62,12 +63,18 @@ public class PlayerAttack : MonoBehaviour
     public void SwitchWeapon(Projectile projectilePrefab)
     {
         _currentWeapon = projectilePrefab;
-        PlayerUIHandler.Instance.UpdateWeaponImage(_currentWeapon.GetSprite());
+        updateWeaponImageUI(_currentWeapon.GetSprite());
     }
 
     public void ResetToBaseWeapon()
     {
         _currentWeapon = bulletPrefab;
-        PlayerUIHandler.Instance.UpdateWeaponImage(_currentWeapon.GetSprite());
+        updateWeaponImageUI(_currentWeapon.GetSprite());
+    }
+
+    private void updateWeaponImageUI(Sprite sprite)
+    {
+        if (PlayerUIHandler.Instance != null)
+            PlayerUIHandler.Instance.UpdateWeaponImage(sprite);
     }
 }
