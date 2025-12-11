@@ -11,8 +11,6 @@ public class Lock : MonoBehaviour, IInteractable
     [SerializeField] private string helpText = "It looks like you need a key.";
     [SerializeField] private int maxUnlockAttempts = 2;
 
-    private int _unlockAttempts = 0;
-
     public void Interact(GameObject interactor)
     {
         PlayerInventory inventory = interactor.GetComponent<PlayerInventory>();
@@ -22,12 +20,7 @@ public class Lock : MonoBehaviour, IInteractable
             else
             {
                 AudioManager.Instance.PlayOneShotWithDelay(lockedAudioClip);
-                if (_unlockAttempts >= maxUnlockAttempts)
-                {
-                    if (PlayerUIHandler.Instance != null) PlayerUIHandler.Instance.PauseAndOpenDisplayWindow(helpText);
-                    _unlockAttempts = 0;
-                }
-                _unlockAttempts++;
+                if (PlayerUIHandler.Instance != null) PlayerUIHandler.Instance.PauseAndOpenDisplayWindow(helpText);
             }
         }
     }
