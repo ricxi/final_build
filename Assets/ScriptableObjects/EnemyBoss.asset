@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0a1714cebd0a568bea2ee06bf3c7e4, type: 3}
   m_Name: EnemyBoss
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 30
   damage: 3
   speed: 10
   points: 50

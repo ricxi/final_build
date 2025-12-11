@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour, IDamageable
         _currentHealth = enemyType.maxHealth;
 
         if (enemyType.followPlayer)
-            playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+            playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         playerScore = GameObject.Find("Player").GetComponent<PlayerScore>();
     }
 
