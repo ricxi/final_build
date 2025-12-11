@@ -5,8 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private float spawnInterval = 7f;
-    // [SerializeField] private BoxCollider2D spawnTrigger;
+    [SerializeField] private float spawnInterval = 3f;
 
     private float _timer;
 
