@@ -9,7 +9,6 @@ public class Lock : MonoBehaviour, IInteractable
     [SerializeField] private GateDoor gate;
     [SerializeField] private LockType lockType;
     [SerializeField] private string helpText = "It looks like you need a key.";
-    [SerializeField] private int maxUnlockAttempts = 2;
 
     public void Interact(GameObject interactor)
     {
