@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerupController : MonoBehaviour
+public class Powerup : MonoBehaviour
 {
     // ids:
     // 10 = health

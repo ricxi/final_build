@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5577876354331869606}
   - component: {fileID: 2277230617651958052}
   m_Layer: 0
-  m_Name: Heart_Powerup
+  m_Name: ItemPowerup_Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

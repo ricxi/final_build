@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponsPowerup : MonoBehaviour
+public class WeaponPowerup : MonoBehaviour
 {
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private AudioClip audioClip;
