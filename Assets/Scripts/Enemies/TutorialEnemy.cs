@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TutorialEnemy : MonoBehaviour, IDamageable
 {
+    public event System.Action OnEnemyIsDead;
     [SerializeField] private EnemyType enemyType;
 
     [TextArea(minLines: 3, maxLines: 3)]
@@ -33,6 +34,7 @@ public class TutorialEnemy : MonoBehaviour, IDamageable
             player.TakeDamage(enemyType.damage);
             gate.Unlock();
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            OnEnemyIsDead?.Invoke();
 
             if (_pauseRoutineCoHandler != null)
             {
