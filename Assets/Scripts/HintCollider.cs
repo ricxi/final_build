@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HintCollider : MonoBehaviour
 {
-
     [TextArea(minLines: 2, maxLines: 2)]
     [SerializeField]
     private string helpText;

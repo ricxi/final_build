@@ -8,7 +8,7 @@ public class TutorialEnemy : MonoBehaviour, IDamageable
 
     [TextArea(minLines: 3, maxLines: 3)]
     [SerializeField]
-    private string tutorialText = "Ouch!!\nLooks like it was an enemy.\nGrab the heart nearby to heal.";
+    private string tutorialText = "Ouch!!\nLooks like it was a foe.\nGrab the heart nearby to heal.";
     [SerializeField] private GateDoor gate;
     [SerializeField] private GameObject explosionPrefab;
 

@@ -81,12 +81,11 @@ public class PlayerHealth : MonoBehaviour, IHealable
     {
         if (!_isDead && currentHealth < maxHealth)
         {
-            currentHealth += healAmount;
-            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            int previousHealth = currentHealth;
+            currentHealth = Mathf.Clamp(currentHealth + healAmount, 0, maxHealth);
+            ShowHeal(currentHealth - previousHealth);
             AudioManager.Instance.PlayOneShot(audioClips.Heal);
-            ShowHeal(healAmount);
             if (currentHealth > 1) AudioManager.Instance.Stop();
-
             updateHealthUI();
             healEffect.PlayOnHeal();
         }

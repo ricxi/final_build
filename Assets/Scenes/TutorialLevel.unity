@@ -13585,11 +13585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -87.96
+      value: -6.95
       objectReference: {fileID: 0}
     - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.3
+      value: 3.17
       objectReference: {fileID: 0}
     - target: {fileID: 8517977176932746691, guid: 1a74052a090f454f5baf25736484ed4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15865,7 +15865,7 @@ GameObject:
   - component: {fileID: 9133335697409153200}
   - component: {fileID: 541788467287807703}
   m_Layer: 0
-  m_Name: Enemy_Green
+  m_Name: Tutorial_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15922,7 +15922,7 @@ MonoBehaviour:
   enemyType: {fileID: 11400000, guid: 4fb37d0ff50d82e31a84bf7d903979c2, type: 2}
   tutorialText: 'Ouch!!!
 
-    Looks like it was an enemy.
+    Looks like it was a foe.
 
     Grab the heart nearby
     to heal.'
