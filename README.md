@@ -3,6 +3,15 @@
 - Tyler Hayward
 - Richard Xiong
 
+## Additions since Beta
+A list of changes since the beta build
+- Added Tutorial Level
+- Added enemy spawners
+- Added Key and Gate/Lock
+- Added more enemy types
+- Added feature where the player can collide into projectile to increase its speed and power
+- Added a super dash feature (player's dash speed increases after dashing for an extended period of time)
+
 ## Licenses
 - Ship, animations for ship, energy waves, teleport, dash explosion
     - https://pixel-carvel.itch.io/player-spaceship
@@ -46,16 +55,3 @@
     - https://disruptorart.itch.io/tiny-ships-free-spaceships
 
 
-## Additions since Beta
-A list of changes since the beta build
-- Added Tutorial Level
-- Added enemy spawners
-- Added Key and Gate/Lock
-
-## Todo
-- Tell monster to look for camera and find camera shake script
-- Tutorial Level
-- More enemy types
-- Enemy spawner/respawner
-- Move projectile sounds into ProjectileType scriptable object
-- Added feature where player collides into projectile
