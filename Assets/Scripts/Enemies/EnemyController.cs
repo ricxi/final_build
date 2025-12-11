@@ -17,20 +17,17 @@ public class EnemyController : MonoBehaviour, IDamageable
         if (enemyType == null) return;
         _currentHealth = enemyType.maxHealth;
 
-        playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        if (enemyType.followPlayer)
+            playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
         playerScore = GameObject.Find("Player").GetComponent<PlayerScore>();
     }
 
     private void Update()
     {
         if (playerTransform != null && enemyType.followPlayer)
-        {
             transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, enemyType.speed * Time.deltaTime);
-        }
         else
-        {
             transform.Translate(Vector2.left * enemyType.speed * Time.deltaTime);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

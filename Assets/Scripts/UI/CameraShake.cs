@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    private Coroutine _shakeCoHandler;
+
     public void TriggerShake(float duration, float magnitude)
     {
-        StartCoroutine(Shake(duration, magnitude));
+        if (_shakeCoHandler != null)
+        {
+            StopCoroutine(_shakeCoHandler);
+            _shakeCoHandler = null;
+        }
+        _shakeCoHandler = StartCoroutine(Shake(duration, magnitude));
     }
 
     private IEnumerator Shake(float duration, float magnitude)

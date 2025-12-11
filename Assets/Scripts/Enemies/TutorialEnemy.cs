@@ -39,11 +39,11 @@ public class TutorialEnemy : MonoBehaviour, IDamageable
     private IEnumerator PauseAfterExplosion(float duration)
     {
         yield return new WaitForSecondsRealtime(duration);
-        if (PlayerUIHandler.Instance != null)
-            PlayerUIHandler.Instance.PauseAndOpenDisplayWindow(tutorialText);
+        if (PlayerUIHandler.Instance != null) PlayerUIHandler.Instance.PauseAndOpenDisplayWindow(tutorialText);
         Destroy(gameObject);
     }
 
+    // Plays a message if the player keeps attacking the enemy
     public void TakeDamage(int __) { }
 }
 
