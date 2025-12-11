@@ -27,6 +27,7 @@ public class Lock : MonoBehaviour, IInteractable
                     if (PlayerUIHandler.Instance != null) PlayerUIHandler.Instance.PauseAndOpenDisplayWindow(helpText);
                     _unlockAttempts = 0;
                 }
+                _unlockAttempts++;
             }
         }
     }

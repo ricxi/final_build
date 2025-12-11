@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Transform teleportTarget;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed = 7f;
     [SerializeField] private float sprintSpeed = 19f;
@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] private PlayerAudioClips playerAudioClips;
 
-    private RigidbodyConstraints2D baselineContraints;
+    private RigidbodyConstraints2D _baselineContraints;
+    private Coroutine _freezePlayerCoHandler = null;
+    private Coroutine _delayTeleportCoHandler = null;
 
     private float _horizontalInput;
     private float _verticalInput;
@@ -21,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         if (rb == null) rb = GetComponent<Rigidbody2D>();
-        baselineContraints = rb.constraints;
+        _baselineContraints = rb.constraints;
     }
 
     private void Update()
@@ -40,13 +42,11 @@ public class PlayerController : MonoBehaviour
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical");
         _isSprinting = Input.GetKey(KeyCode.LeftShift);
-        // if (Input.GetKeyDown(KeyCode.Z)) ActivateShield(3f);
     }
 
     private void Move()
     {
         float currentSpeed = _isSprinting ? sprintSpeed : speed;
-
         Vector2 movementInput = new(_horizontalInput, _verticalInput);
         rb.MovePosition(rb.position + (movementInput.normalized * (currentSpeed * Time.fixedDeltaTime)));
     }
@@ -58,25 +58,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Teleport"))
-        {
-            ActivateShield(3f);
-            PlayerUIHandler.Instance.DisplayText("teleporting!!", 2f);
-            AudioManager.Instance.PlayOneShot(playerAudioClips.Teleport); // TODO: create backup player if this one is already playing
-            StartCoroutine(FreezePlayer(1.2f));
-            StartCoroutine(DelayTeleport(1f));
-        }
-
         if (collision.CompareTag("LevelEndTrigger"))
         {
-            StartCoroutine(FreezePlayer(1.2f));
+            FreezeMovement(1.2f);
         }
-
     }
 
     public void ActivateShield(float duration)
     {
-        // Do I need this null check?
         if (shield != null && !shield.activeSelf)
         {
             AudioManager.Instance.PlayOneShot(playerAudioClips.EquipShield);
@@ -90,23 +79,21 @@ public class PlayerController : MonoBehaviour
         if (shield != null && shield.activeSelf) shield.SetActive(false);
     }
 
-    // Temporarily freezes the player.
-    private IEnumerator FreezePlayer(float duration)
+    // Temporarily freeze the player.
+    public void FreezeMovement(float duration)
+    {
+        if (_freezePlayerCoHandler != null)
+        {
+            StopCoroutine(_freezePlayerCoHandler);
+            _freezePlayerCoHandler = null;
+        }
+        _freezePlayerCoHandler = StartCoroutine(delayFreezeMovement(duration));
+    }
+
+    private IEnumerator delayFreezeMovement(float duration)
     {
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         yield return new WaitForSeconds(duration);
-        rb.constraints = baselineContraints;
-    }
-
-    private IEnumerator DelayTeleport(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        if (teleportTarget != null) transform.position = teleportTarget.position;
-        else
-        {
-            transform.position = transform.position;
-            Debug.LogError("Missing teleportTarget reference");
-        }
-
+        rb.constraints = _baselineContraints;
     }
 }

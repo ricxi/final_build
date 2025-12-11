@@ -50,7 +50,7 @@
 A list of changes since the beta build
 - Added Tutorial Level
 - Added enemy spawners
-- Created Gate and Lock
+- Added Key and Gate/Lock
 
 ## Todo
 - Tell monster to look for camera and find camera shake script
@@ -58,3 +58,4 @@ A list of changes since the beta build
 - More enemy types
 - Enemy spawner/respawner
 - Move projectile sounds into ProjectileType scriptable object
+- Added feature where player collides into projectile
